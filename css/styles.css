@@ -17,6 +17,7 @@ body {
   background: linear-gradient(to right, #7f6ce6, #f56f8c);
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
 h1 {
