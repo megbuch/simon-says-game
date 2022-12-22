@@ -15,16 +15,32 @@
   <body>
     <h1>Simon Says</h1>
     <div class="top">
-      <p class="info">Click <b>play</b> to start!</p>
+      <p id="info">Click <b>play</b> to start!</p>
       <button id="play">PLAY</button>
     </div>
     <div class="container">
-      <div class="board">
-        <div class="tile green-default"></div>
-        <div class="tile red-default"></div>
-        <div class="tile yellow-default"></div>
-        <div class="tile blue-default"></div>
+      <div class="board unclickable">
+        <div data-tile="green" class="tile green inactive"></div>
+        <div data-tile="red" class="tile red inactive"></div>
+        <div data-tile="blue" class="tile blue inactive"></div>
+        <div data-tile="yellow" class="tile yellow inactive"></div>
       </div>
     </div>
+    <audio
+      src="https://s3.amazonaws.com/freecodecamp/simonSound1.mp3"
+      data-sound="red"
+    ></audio>
+    <audio
+      src="https://s3.amazonaws.com/freecodecamp/simonSound2.mp3"
+      data-sound="green"
+    ></audio>
+    <audio
+      src="https://s3.amazonaws.com/freecodecamp/simonSound3.mp3"
+      data-sound="blue"
+    ></audio>
+    <audio
+      src="https://s3.amazonaws.com/freecodecamp/simonSound4.mp3"
+      data-sound="yellow"
+    ></audio>
   </body>
 </html>

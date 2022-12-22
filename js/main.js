@@ -3,22 +3,47 @@ let userSequence = [];
 let level = 0;
 
 const startButton = document.getElementById("play");
-const green = document.querySelector("green-default");
-const red = document.querySelector("red-default");
-const yellow = document.querySelector("yellow-default");
-const blue = document.querySelector("blue-default");
+const info = document.getElementById("info");
 
-// 1 green, 2 red, 3 yellow, 4 blue
-const tiles = [1, 2, 3, 4];
-
-function getRandomNum() {
-  const randomNum = Math.floor(Math.random() * 4 + 1);
-  return randomNum;
+function getRandomColor() {
+  const tiles = ["green", "red", "yellow", "blue"];
+  const randomColor = tiles[Math.floor(Math.random() * tiles.length)];
+  return randomColor;
 }
 
 function levelUp() {
   level = level + 1;
   const newSequence = [...sequence];
-  newSequence.push(getRandomNum());
+  newSequence.push(getRandomColor());
   sequence = [...newSequence];
+  playSequence(newSequence);
+}
+
+function startGame() {
+  startButton.classList.add("hidden");
+  info.innerText = "Watch the sequence carefully!";
+  level = 0;
+  levelUp();
+}
+
+startButton.addEventListener("click", startGame);
+
+function activateTile(color) {
+  const tile = document.querySelector(`[data-tile='${color}']`);
+  const sound = document.querySelector(`[data-sound='${color}']`);
+
+  tile.classList.remove("inactive");
+  sound.play();
+
+  setTimeout(() => {
+    tile.classList.add("inactive");
+  }, 500);
+}
+
+function playSequence(newSequence) {
+  newSequence.forEach((color, index) => {
+    setTimeout(() => {
+      activateTile(color);
+    }, index * 800);
+  });
 }

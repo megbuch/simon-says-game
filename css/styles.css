@@ -74,7 +74,7 @@ button:hover {
   width: 600px;
   height: 600px;
   margin: 75px auto;
-  background-color: rgba(255, 255, 255, 0.205);
+  background-color: rgba(0, 0, 0, 0.753);
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -100,19 +100,30 @@ button:hover {
   opacity: 85%;
 }
 
-.green-default {
-  background-color: #1a501a;
+.green {
+  background-color: #00a300;
 }
 
-.red-default {
-  background-color: #611d1d;
+.red {
+  background-color: #ce0707;
 }
 
-.yellow-default {
-  background-color: #5f5f1d;
+.yellow {
+  background-color: #ebeb00;
 }
 
-.blue-default {
-  background-color: #212150;
-  opacity: 100%;
+.blue {
+  background-color: #0000d6;
+}
+
+.inactive {
+  opacity: 35%;
+}
+
+.hidden {
+  display: none;
+}
+
+.unclickable {
+  pointer-events: none;
 }
