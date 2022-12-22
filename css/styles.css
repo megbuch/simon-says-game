@@ -1,3 +1,11 @@
+/*
+        light colors      dark colors
+green:    #12af12           #1a501a
+red:      #e02a2a           #611d1d
+yellow:   #e9e92a           #5f5f1d
+blue:     #3434d1           #212150
+*/
+
 * {
   box-sizing: border-box;
 }
@@ -19,7 +27,6 @@ body {
   background-color: rgba(255, 255, 255, 0.363);
   border-radius: 50%;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -43,6 +50,30 @@ b {
 .board {
   width: 90%;
   height: 90%;
-  border: 3px solid black;
   border-radius: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+.tile {
+  width: 50%;
+  height: 50%;
+}
+
+.green-dark {
+  background-color: #1a501a;
+}
+
+.red-dark {
+  background-color: #611d1d;
+}
+
+.yellow-dark {
+  background-color: #5f5f1d;
+}
+
+.blue-dark {
+  background-color: #212150;
+  opacity: 100%;
 }
