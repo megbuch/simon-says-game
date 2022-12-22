@@ -15,20 +15,31 @@ body {
   text-align: center;
   color: white;
   background: linear-gradient(to right, #7f6ce6, #f56f8c);
-  background-repeat: none;
   margin: 0;
   padding: 0;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+    opacity: 0;
+  }
+  to {
+    transform: rotate(360deg);
+    opacity: 1;
+  }
 }
 
 .container {
   width: 600px;
   height: 600px;
   margin: 75px auto;
-  background-color: rgba(255, 255, 255, 0.363);
+  background-color: rgba(255, 255, 255, 0.205);
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
+  animation: rotation 5s;
 }
 
 h1 {
@@ -59,6 +70,10 @@ b {
 .tile {
   width: 50%;
   height: 50%;
+}
+
+.tile:hover {
+  opacity: 85%;
 }
 
 .green-dark {
