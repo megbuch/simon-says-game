@@ -10,16 +10,20 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap"
     />
+    <script defer src="js/main.js"></script>
   </head>
   <body>
     <h1>Simon Says</h1>
-    <p class="info">Click <b>play</b> to start!</p>
+    <div class="top">
+      <p class="info">Click <b>play</b> to start!</p>
+      <button id="play">PLAY</button>
+    </div>
     <div class="container">
       <div class="board">
-        <div class="tile green-dark"></div>
-        <div class="tile red-dark"></div>
-        <div class="tile yellow-dark"></div>
-        <div class="tile blue-dark"></div>
+        <div class="tile green-default"></div>
+        <div class="tile red-default"></div>
+        <div class="tile yellow-default"></div>
+        <div class="tile blue-default"></div>
       </div>
     </div>
   </body>
