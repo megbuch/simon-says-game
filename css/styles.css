@@ -14,10 +14,10 @@ body {
   font-family: "Poppins", sans-serif;
   text-align: center;
   color: white;
-  background: linear-gradient(to right, #7f6ce6, #f56f8c);
+  background: linear-gradient(to top, #7f6ce6, #f56f8c) no-repeat;
+  min-height: 100vh;
   margin: 0;
   padding: 0;
-  overflow: hidden;
 }
 
 h1 {
