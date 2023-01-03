@@ -7,6 +7,7 @@ let correct;
 const board = document.querySelector(".board");
 const startButton = document.getElementById("play");
 const info = document.getElementById("info");
+
 const tiles = ["green", "red", "yellow", "blue"];
 
 startButton.addEventListener("click", startGame);
@@ -20,6 +21,8 @@ function startGame() {
   startButton.classList.add("hidden");
   info.innerText = "Watch the sequence carefully!";
   level = 0;
+  document.body.style.background =
+    "linear-gradient(to top, #87b7ff, #6f7cf5) no-repeat";
   levelUp();
 }
 
@@ -74,7 +77,7 @@ function userTurn() {
   info.innerText = "Your turn!";
 }
 
-//pushes clicked tile to user sequence, plays sound when clicked, checks clicks against game sequence.
+// pushes clicked tile to user sequence, plays sound when clicked, checks clicks against game sequence.
 function handleClick(tile) {
   userSequence.push(tile);
   const sound = document.querySelector(`[data-sound='${tile}']`);
@@ -82,6 +85,8 @@ function handleClick(tile) {
 
   for (let i = 0; i < userSequence.length; i++) {
     if (userSequence[i] !== sequence[i]) {
+      document.body.style.background =
+        "linear-gradient(to top, #EA8F8F, #C12727) no-repeat";
       reset();
       return;
     }
@@ -94,12 +99,12 @@ function handleClick(tile) {
   }
 }
 
-//resets the game.
+// resets the game.
 function reset() {
   sequence = [];
   userSequence = [];
   level = 0;
   startButton.classList.remove("hidden");
   board.classList.add("unclickable");
-  info.innerText = "Game over! You clicked the wrong tile. Play again?";
+  info.innerText = "Game over! 😈 Play again?";
 }
