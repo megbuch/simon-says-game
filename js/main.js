@@ -74,26 +74,32 @@ function userTurn() {
   info.innerText = "Your turn!";
 }
 
-// pushes the value of the clicked tile to userSequence array, plays sound of tile when clicked.
+//pushes clicked tile to user sequence, plays sound when clicked, checks clicks against game sequence.
 function handleClick(tile) {
   userSequence.push(tile);
   const sound = document.querySelector(`[data-sound='${tile}']`);
   sound.play();
+
+  for (let i = 0; i < userSequence.length; i++) {
+    if (userSequence[i] !== sequence[i]) {
+      reset();
+      return;
+    }
+  }
+
   if (userSequence.length === sequence.length) {
-    checkSequence();
+    info.innerText = "You're doing great! Keep it up!";
+    setTimeout(levelUp, 1200);
+    return;
   }
 }
 
-//checks the user's sequence against simon's sequence.
-function checkSequence() {
-  for (let i = 0; i < userSequence.length; i++) {
-    if (userSequence[i] !== sequence[i]) {
-      console.log("game over");
-      //attempt 1: would levelUp exponentially, because it was in the for loop.
-      // } else {
-      //   setTimeout(levelUp, 1200);
-      // }
-    }
-  }
-  setTimeout(levelUp, 1200); //attempt 2: levelUp invokes regardless of game over.. need to fix.
+//resets the game.
+function reset() {
+  sequence = [];
+  userSequence = [];
+  level = 0;
+  startButton.classList.remove("hidden");
+  board.classList.add("unclickable");
+  info.innerText = "Game over! You clicked the wrong tile. Play again?";
 }
