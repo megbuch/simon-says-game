@@ -1,6 +1,6 @@
 # simon-says-game
 <h3>About</h3>
-<p>This is my take on the classic game of Simon Says! <em>Beat all 12 levels and brag to all of your friends.</em></p>
+<p>This is my take on the classic game of Simon Says! <em>Beat all 12 levels and brag to your friends.</em></p>
 <p>This was my first project intended for General Assembly's Software Engineering Immersive. It is coded in HTML5, CSS3, and vanilla JavaScript. This game primarily showcases my understanding of asynchronous timing as well as DOM manipulation.</p>
 
 <h3>How to Play</h3>
