@@ -1,6 +1,7 @@
 let sequence = [];
 let userSequence = [];
 let level;
+let highScore = 0;
 
 const board = document.querySelector(".board");
 const startButton = document.getElementById("play");
@@ -21,8 +22,7 @@ function startGame() {
   startButton.classList.add("hidden");
   info.innerText = "Watch the sequence carefully!";
   level = 0;
-  document.body.style.background =
-    "linear-gradient(to top, #87b7ff, #6f7cf5) no-repeat";
+  document.body.style.background = "linear-gradient(to top, #87b7ff, #6f7cf5)";
   levelUp();
 }
 
@@ -32,7 +32,7 @@ function levelUp() {
   userSequence = [];
   board.classList.add("unclickable");
   info.innerText = "Watch the sequence!";
-  levelText.innerText = `${level}`;
+  levelText.innerText = level;
 
   const newSequence = [...sequence]; //copies sequence to newSequence
   newSequence.push(getRandomColor()); //pushes new color to newSequence
@@ -41,7 +41,7 @@ function levelUp() {
 
   setTimeout(() => {
     userTurn();
-  }, level * 800 + 700);
+  }, level * 700 + 200);
 }
 
 // returns a random color from the tiles array.
@@ -55,7 +55,7 @@ function playSequence(sequence) {
   sequence.forEach((color, index) => {
     setTimeout(() => {
       activateTile(color);
-    }, index * 800);
+    }, index * 700);
   });
 }
 
@@ -92,7 +92,7 @@ function handleClick(tile) {
   }
 
   if (userSequence.length === sequence.length) {
-    if (level === 20) {
+    if (level === 12) {
       winGame();
     } else {
       info.innerText = "You're doing great! Keep it up!";
@@ -106,6 +106,11 @@ function handleClick(tile) {
 function reset() {
   const sound = document.querySelector(`[data-sound='game-over']`);
   sound.play();
+
+  if (highScore < level) {
+    highScore = level;
+  }
+
   sequence = [];
   userSequence = [];
   level = 0;
@@ -113,15 +118,20 @@ function reset() {
   startButton.classList.remove("hidden");
   board.classList.add("unclickable");
 
-  document.body.style.background =
-    "linear-gradient(to top, #EA8F8F, #C12727) no-repeat";
+  document.body.style.background = "linear-gradient(to top, #EA8F8F, #C12727)";
   info.innerText = "Game over! 😈 Play again?";
+  highScoreText.innerText = highScore;
 }
 
 //resets the game if win.
 function winGame() {
   const sound = document.querySelector(`[data-sound='game-win']`);
   sound.play();
+
+  if (highScore < level) {
+    highScore = level;
+  }
+
   sequence = [];
   userSequence = [];
   level = 0;
@@ -129,7 +139,7 @@ function winGame() {
   startButton.classList.remove("hidden");
   board.classList.add("unclickable");
 
-  document.body.style.background =
-    "linear-gradient(to top, #95EFAC, #34DB5E) no-repeat";
+  document.body.style.background = "linear-gradient(to top, #95EFAC, #34DB5E)";
   info.innerText = "Amazing work! 🤩 You win!";
+  highScoreText.innerText = highScore;
 }
