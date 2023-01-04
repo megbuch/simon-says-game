@@ -1,12 +1,12 @@
 let sequence = [];
 let userSequence = [];
 let level;
-let win;
-let correct;
 
 const board = document.querySelector(".board");
 const startButton = document.getElementById("play");
 const info = document.getElementById("info");
+const highScoreText = document.getElementById("high-score");
+const levelText = document.getElementById("level");
 
 const tiles = ["green", "red", "yellow", "blue"];
 
@@ -32,6 +32,7 @@ function levelUp() {
   userSequence = [];
   board.classList.add("unclickable");
   info.innerText = "Watch the sequence!";
+  levelText.innerText = `${level}`;
 
   const newSequence = [...sequence]; //copies sequence to newSequence
   newSequence.push(getRandomColor()); //pushes new color to newSequence
@@ -85,26 +86,50 @@ function handleClick(tile) {
 
   for (let i = 0; i < userSequence.length; i++) {
     if (userSequence[i] !== sequence[i]) {
-      document.body.style.background =
-        "linear-gradient(to top, #EA8F8F, #C12727) no-repeat";
       reset();
       return;
     }
   }
 
   if (userSequence.length === sequence.length) {
-    info.innerText = "You're doing great! Keep it up!";
-    setTimeout(levelUp, 1200);
-    return;
+    if (level === 20) {
+      winGame();
+    } else {
+      info.innerText = "You're doing great! Keep it up!";
+      setTimeout(levelUp, 1200);
+      return;
+    }
   }
 }
 
-// resets the game.
+// resets the game if loss.
 function reset() {
+  const sound = document.querySelector(`[data-sound='game-over']`);
+  sound.play();
   sequence = [];
   userSequence = [];
   level = 0;
+
   startButton.classList.remove("hidden");
   board.classList.add("unclickable");
+
+  document.body.style.background =
+    "linear-gradient(to top, #EA8F8F, #C12727) no-repeat";
   info.innerText = "Game over! 😈 Play again?";
+}
+
+//resets the game if win.
+function winGame() {
+  const sound = document.querySelector(`[data-sound='game-win']`);
+  sound.play();
+  sequence = [];
+  userSequence = [];
+  level = 0;
+
+  startButton.classList.remove("hidden");
+  board.classList.add("unclickable");
+
+  document.body.style.background =
+    "linear-gradient(to top, #95EFAC, #34DB5E) no-repeat";
+  info.innerText = "Amazing work! 🤩 You win!";
 }

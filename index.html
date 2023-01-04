@@ -15,8 +15,12 @@
   <body>
     <h1>Simon Says</h1>
     <div class="top">
-      <p id="info">Click <b>play</b> to start!</p>
+      <p id="info">Click <b>play</b> to start! Make it to 20 to win!</p>
       <button id="play">PLAY</button>
+    </div>
+    <div class="score">
+      <h3>High Score: <span id="high-score">0</span></h3>
+      <h3>Level: <span id="level">0</span></h3>
     </div>
     <div class="container">
       <div class="board unclickable">
@@ -47,5 +51,7 @@
       src="https://s3.amazonaws.com/freecodecamp/simonSound4.mp3"
       data-sound="yellow"
     ></audio>
+    <audio src="sounds/game-over.wav" data-sound="game-over"></audio>
+    <audio src="sounds/game-win.wav" data-sound="game-win"></audio>
   </body>
 </html>
