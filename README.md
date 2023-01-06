@@ -1,6 +1,6 @@
 # simon-says-game
 
-### <b><a href="https://bardirl.github.io/simon-says-game">Play the game here!</a></b> 👀
+### <b><a href="https://bardirl.github.io/simon-says-game">Play the game here!</a></b> 🟢🔴🔵🟡
 
 <h3>About</h3>
 <p>This is my take on the classic game of Simon Says! <em>Beat all 12 levels and brag to your friends.</em></p>
