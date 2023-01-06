@@ -53,7 +53,6 @@ function playSequence(sequence) {
   });
 }
 
-// selects tile element and makes the tile illuminate on a timer by removing/adding '.inactive' class. selects the sound element and plays the sound on a timer.
 function activateTile(color) {
   const tile = document.querySelector(`[data-tile='${color}']`);
   const sound = document.querySelector(`[data-sound='${color}']`);
@@ -66,13 +65,11 @@ function activateTile(color) {
   }, 300);
 }
 
-// allows the user to click the board.
 function userTurn() {
   board.classList.remove("unclickable");
   info.innerText = "Your turn!";
 }
 
-// pushes clicked tile to user sequence, plays sound when clicked, checks clicks against game sequence.
 function handleClick(tile) {
   userSequence.push(tile);
   const sound = document.querySelector(`[data-sound='${tile}']`);
@@ -96,7 +93,6 @@ function handleClick(tile) {
   }
 }
 
-// resets the game if loss.
 function reset() {
   const sound = document.querySelector(`[data-sound='game-over']`);
   sound.play();
@@ -117,7 +113,6 @@ function reset() {
   highScoreText.innerText = highScore;
 }
 
-//resets the game if win.
 function winGame() {
   const sound = document.querySelector(`[data-sound='game-win']`);
   sound.play();
