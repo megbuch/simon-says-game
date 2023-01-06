@@ -8,7 +8,7 @@
 
 <h3>How to Play</h3>
 <ul>
-  <li>Click "start" button to begin the game.</li>
+  <li>Click "PLAY" button to begin the game.</li>
   <li>The computer sequence will play.</li>
   <li>Once the computer's sequence ends, it is the user's turn. Click the tiles in the order it was displayed.</li>
   <li>If the sequence matches the computer's, you will move to the next round. Each round will add one more tile to the sequence.</li>
