@@ -17,7 +17,6 @@ board.addEventListener("click", (event) => {
   if (tile) handleClick(tile);
 });
 
-// starts the game.
 function startGame() {
   startButton.classList.add("hidden");
   info.innerText = "Watch the sequence carefully!";
@@ -26,7 +25,6 @@ function startGame() {
   levelUp();
 }
 
-// increments level++ and pushes new random color to sequence array.
 function levelUp() {
   level = level + 1;
   userSequence = [];
@@ -34,28 +32,24 @@ function levelUp() {
   info.innerText = "Watch the sequence!";
   levelText.innerText = level;
 
-  const newSequence = [...sequence]; //copies sequence to newSequence
-  newSequence.push(getRandomColor()); //pushes new color to newSequence
-  sequence = [...newSequence]; //resets global sequence
+  sequence.push(getRandomColor());
   playSequence(sequence);
 
   setTimeout(() => {
     userTurn();
-  }, level * 700 + 200);
+  }, level * 650 + 200);
 }
 
-// returns a random color from the tiles array.
 function getRandomColor() {
   const randomColor = tiles[Math.floor(Math.random() * tiles.length)];
   return randomColor;
 }
 
-// iterates through the sequence array with a timer to delay the iteration of the next index.
 function playSequence(sequence) {
   sequence.forEach((color, index) => {
     setTimeout(() => {
       activateTile(color);
-    }, index * 700);
+    }, index * 650);
   });
 }
 
@@ -69,7 +63,7 @@ function activateTile(color) {
 
   setTimeout(() => {
     tile.classList.add("inactive");
-  }, 500);
+  }, 300);
 }
 
 // allows the user to click the board.
@@ -92,7 +86,7 @@ function handleClick(tile) {
   }
 
   if (userSequence.length === sequence.length) {
-    if (level === 12) {
+    if (level === 5) {
       winGame();
     } else {
       info.innerText = "You're doing great! Keep it up!";
@@ -139,7 +133,7 @@ function winGame() {
   startButton.classList.remove("hidden");
   board.classList.add("unclickable");
 
-  document.body.style.background = "linear-gradient(to top, #95EFAC, #34DB5E)";
+  document.body.style.background = "linear-gradient(to top, #BEF1CB, #60BC77)";
   info.innerText = "Amazing work! 🤩 You win!";
   highScoreText.innerText = highScore;
 }
