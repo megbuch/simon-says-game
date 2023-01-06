@@ -83,7 +83,7 @@ function handleClick(tile) {
   }
 
   if (userSequence.length === sequence.length) {
-    if (level === 5) {
+    if (level === 12) {
       winGame();
     } else {
       info.innerText = "You're doing great! Keep it up!";
