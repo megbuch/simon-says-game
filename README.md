@@ -14,6 +14,22 @@
   <li>If the sequence matches the computer's, you will move to the next round. Each round will add one more tile to the sequence.</li>
 </ul>
 
+<h3>Screenshots</h3>
+ 
+![1](https://user-images.githubusercontent.com/115611931/211066390-4d9c82c6-e37e-464e-b869-5aa74adea9c4.png)
+
+![2](https://user-images.githubusercontent.com/115611931/211066718-1107d2e1-0ed9-4728-9100-65e6f1babd9f.png)
+
+![3](https://user-images.githubusercontent.com/115611931/211066830-224ce5b7-0b66-4d7b-95bc-6967a10b760b.png)
+
+<b>Win Screen</b>
+
+![4](https://user-images.githubusercontent.com/115611931/211066876-1bc143b7-fe2f-4089-998f-97bd7b05e9d8.png)
+
+<b>Loss Screen</b>
+
+![5](https://user-images.githubusercontent.com/115611931/211066903-de1048d7-a85a-4d3c-b1e9-6a9b940d5bc7.png)
+
 <h3>User Stories</h3>
 
 1. AAU, I want to click a button to start the game.
@@ -92,6 +108,7 @@
       return;
     }
   }
+
 ```
 
 8. AAU, If I enter the correct sequence, then I want to level up. If I have beaten a specific number of rounds, then I want to win the game.
