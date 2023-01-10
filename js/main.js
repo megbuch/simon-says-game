@@ -1,3 +1,6 @@
+const AudioContext = window.AudioContext || window.webkitAudioContext;
+const audioCtx = new AudioContext();
+
 let sequence = [];
 let userSequence = [];
 let level;
@@ -37,7 +40,7 @@ function levelUp() {
 
   setTimeout(() => {
     userTurn();
-  }, level * 650 + 200);
+  }, level * 700 + 200);
 }
 
 function getRandomColor() {
@@ -49,7 +52,7 @@ function playSequence(sequence) {
   sequence.forEach((color, index) => {
     setTimeout(() => {
       activateTile(color);
-    }, index * 650);
+    }, index * 700);
   });
 }
 
@@ -87,7 +90,7 @@ function handleClick(tile) {
       winGame();
     } else {
       info.innerText = "You're doing great! Keep it up!";
-      setTimeout(levelUp, 1200);
+      setTimeout(levelUp, 1300);
       return;
     }
   }
